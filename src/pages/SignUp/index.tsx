@@ -1,48 +1,56 @@
 import React from 'react';
-import { FiUser, FiArrowLeft, FiLock, FiMail  } from 'react-icons/fi';
+import { FiUser, FiArrowLeft, FiLock, FiMail } from 'react-icons/fi';
+import { Form } from '@unform/web';
 
-import { Container, Content, Background} from './style';
+import { Container, Content, Background } from './style';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
 import logoImg from '../../assets/logo.svg';
 
-const SignUp: React.FC = () => (
+interface Request {
+  name: string;
+  email: string;
+  password: string;
+}
 
-  <Container>
+const SignUp: React.FC = () => {
+  function handleSubmit(data: Request): void {
+    console.log(data);
+  }
 
-    <Background />
+  return (
+    <Container>
+      <Background />
 
-    <Content>
+      <Content>
+        <img src={logoImg} alt="Gobarber" />
 
-      <img src={logoImg} alt="Gobarber"/>
+        <Form onSubmit={handleSubmit}>
+          <h1>Faça seu cadastro</h1>
 
-      <form>
+          <Input name="name" icon={FiUser} type="text" placeholder="Nome" />
 
-        <h1>Faça seu cadastro</h1>
+          <Input name="email" icon={FiMail} type="text" placeholder="E-mail" />
 
-        <Input name="user" icon={FiUser} type="text" placeholder="Nome"/>
+          <Input
+            name="password"
+            icon={FiLock}
+            type="password"
+            placeholder="Senha"
+          />
 
-        <Input name="email" icon={FiMail} type="text" placeholder="E-mail"/>
+          <Button type="submit">Cadastrar</Button>
+        </Form>
 
-        <Input name="password" icon={FiLock} type="password" placeholder="Senha"/>
-
-        <Button type="submit">Cadastrar</Button>
-
-      </form>
-
-      <a href="signup">
-        <FiArrowLeft />
-        Voltar para o login
-      </a>
-
-    </Content>
-
-
-  </Container>
-
-
-);
+        <a href="signup">
+          <FiArrowLeft />
+          Voltar para o login
+        </a>
+      </Content>
+    </Container>
+  );
+};
 
 export default SignUp;
