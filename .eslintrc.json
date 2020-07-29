@@ -1,7 +1,7 @@
 {
   "env": {
       "browser": true,
-      "es2020": true
+      "es6": true
   },
   "extends": [
       "plugin:react/recommended",
@@ -44,7 +44,9 @@
     ],
     "camelcase": "off",
     "@typescript/camelcase": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "settings": {
     "import/resolver": {
