@@ -47,7 +47,8 @@
     "react/jsx-one-expression-per-line": "off",
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "no-unused-expressions": "off"
   },
   "settings": {
     "import/resolver": {
